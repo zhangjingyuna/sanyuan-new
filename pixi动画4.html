@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>动画精灵</title>
+</head>
+
+<body>
+    <div id="px-render"></div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.8.2/pixi.min.js"></script>
+    
+    <script>
+      var app = new PIXI.Application(860, 600, {
+	backgroundColor: 0x1099bb
+});
+document.body.appendChild(app.view);
+ 
+var movieClip = null;
+// 加载图片
+var loader = new PIXI.loaders.Loader();
+loader.add('birdhead.png', "birdhead.png");
+loader.on("progress", function(target, resource) {
+	console.log("progress:", target.progress); //加载进度
+});
+loader.once('complete', function(target, resource) {
+	onComplete();
+});
+loader.load();
+ 
+//加载完成
+function onComplete() {
+	var texture = PIXI.Texture.fromImage("birdhead.png");
+	var cutnum = 6;
+	//将图片拆分为6帧
+	var width = parseInt(texture.width / cutnum);
+	var height = parseInt(texture.height);
+	var frameArray = [];
+	for(var i = 0; i < cutnum; i++) {
+		var rectangle = new PIXI.Rectangle(i * width, 0, width, height);
+		var frame = new PIXI.Texture(texture, rectangle);
+		frameArray.push(frame);
+	}
+	//播放动画
+	movieClip = new PIXI.extras.AnimatedSprite(frameArray);
+	movieClip.position.x = 0;
+	movieClip.position.y = 0;
+	movieClip.animationSpeed = parseFloat((20 / 420).toFixed(2));
+	movieClip.play();
+	app.stage.addChild(movieClip);
+}
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+{"frames": {
+
+"dnf0.png":
+{
+	"frame": {"x":0,"y":0,"w":80,"h":143},
+	"rotated": false,
+	"trimmed": false
+},
+"dnf1.png":
+{
+	"frame": {"x":80,"y":0,"w":80,"h":143},
+	"rotated": false,
+	"trimmed": false
+},
+"dnf2.png":
+{
+	"frame": {"x":160,"y":0,"w":80,"h":143},
+	"rotated": false,
+	"trimmed": false
+},
+"dnf3.png":
+{
+	"frame": {"x":240,"y":0,"w":80,"h":143},
+	"rotated": false,
+	"trimmed": false
+},
+"dnf4.png":
+{
+	"frame": {"x":0,"y":143,"w":80,"h":143},
+	"rotated": false,
+	"trimmed": false
+},
+"dnf5.png":
+{
+	"frame": {"x":80,"y":143,"w":80,"h":143},
+	"rotated": false,
+	"trimmed": false
+},
+"dnf6.png":
+{
+	"frame": {"x":160,"y":143,"w":80,"h":143},
+	"rotated": false,
+	"trimmed": false
+},
+"dnf7.png":
+{
+	"frame": {"x":240,"y":143,"w":80,"h":143},
+	"rotated": false,
+	"trimmed": false
+}
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "dnf.png",
+	"format": "RGBA8888",
+	"size": {"w":320,"h":286},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:43a661b940d5a857d79fbdc374fa92d3:a2aa066cf7c95d925a091971eb92eba3:01daf213c191fbc52b75953283de55c1$"
+}
+}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>动画精灵</title>
+</head>
+
+<body>
+    <div id="px-render"></div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.8.2/pixi.min.js"></script>
+    <script src="https://www.kkkk1000.com/js/spriteUtilities.js"></script>
+    <script>
+        //创建一个 Pixi应用 需要的一些参数
+        let option = {
+            width: 400,
+            height: 300,
+            transparent: true,
+        }
+        //创建一个 Pixi应用
+        let app = new PIXI.Application(option);
+        //获取渲染器
+        let renderer = app.renderer;
+        let playground = document.getElementById('px-render');
+        //把 Pixi 创建的 canvas 添加到页面上
+        playground.appendChild(renderer.view);
+		 
+        let su = new SpriteUtilities(PIXI);
+		//需要加载的纹理贴图集的地址
+		let textureURL = "https://www.kkkk1000.com/images/learnPixiJS-AnimatedSprite/dnf.json";
+
+        PIXI.loader.add(textureURL).load(setup); 
+        function setup() { 
+			//创建纹理数组
+			debugger;
+            let frames = su.frameSeries(0,7,"dnf",".png"); 
+			//创建动画精灵
+            let pixie = new PIXI.extras.AnimatedSprite(frames);
+			//设置动画精灵的速度
+			pixie.animationSpeed=0.1;
+
+			//把动画精灵添加到舞台
+            app.stage.addChild(pixie);
+			//播放动画精灵
+            pixie.play();
+        }
+    </script>
+</body>
+
+</html>
