@@ -148,6 +148,11 @@ var imgArr = [
     "img/part9/whitebox.png",
     "img/part9/gglogo.png",
     "img/part9/signboard.png",
+    "img/zhen/b0.png",
+    "img/zhen/b1.png",
+    "img/zhen/b2.png",
+    "img/zhen/b3.png",
+    "img/zhen/b4.png",
 ]
 
 // 横屏内容长度
@@ -606,11 +611,17 @@ function pixiFn(){
           });
           part1bird2.alpha=0;
         // 仙鹤3
-        part1bird3 = createSprite("img/part2/bird3.png",{
-            x:400,
-            y:94,
-          });
-        part1bird3.alpha=0;
+          part1bird3 = createAnimatedSprite("img/zhen/b",5,{
+             x:400,
+             y:94,
+         });
+        // part1bird3 = createSprite("img/part2/bird3.png",{
+        //     x:400,
+        //     y:94,
+        //   });
+
+          
+        // part1bird3.alpha=0;
 
         // 仙鹤4
         part1bird4 = createSprite("img/part2/bird4.png",{
@@ -863,6 +874,33 @@ function pixiFn(){
         part1birdfly5.scale.set(0.5,0.5);
         part1birdfly5.rotation=-0.3
 
+         // 梅花后的中仙鹤2
+         part1birdfly6 = createSprite("img/part4/birdfly2.png",{
+            x:5600,
+            y:150,
+        });
+        part1birdfly6.scale.set(0.8,0.8);
+        part1birdfly6.scale.set(0.8,0.8);
+        part1birdfly6.rotation=-0.3
+
+         // 梅花后的中仙鹤3
+         part1birdfly7 = createSprite("img/part4/birdfly1.png",{
+            x:5500,
+            y:60,
+        });
+        part1birdfly7.scale.set(0.3,0.3);
+        part1birdfly7.scale.set(0.3,0.3);
+        part1birdfly7.rotation=-0.3
+
+         // 梅花后的中仙鹤4
+         part1birdfly8 = createSprite("img/part4/birdfly1.png",{
+            x:5750,
+            y:100,
+        });
+        part1birdfly8.scale.set(0.4,0.4);
+        part1birdfly8.scale.set(0.4,0.4);
+        part1birdfly8.rotation=-0.3
+
         // 梅花后的中仙鹤后的雾
         part1birdflywu = createSprite("img/part4/birdflywu.png",{
             x:6300,
@@ -965,14 +1003,23 @@ function pixiFn(){
 
         // 花瓣雨
         huabanyu= createSprite("img/part5/huabanyu.png",{
-            x:460,
-            y:-100,
+            x:360,
+            y:-4000,
           });
-          huabanyu.alpha=0;
-        huabanyu.scale.x=0.1;
-        huabanyu.scale.y=0.1;
+          // huabanyu.alpha=0;
+        huabanyu.scale.x=1.2;
+        huabanyu.scale.y=1.2;
 
-        changCount.addChild(chang1,chang,huabanyu)
+        // 唱片上的伞
+        changsan1= createSprite("img/part5/redsan.png",{
+            x:370,
+            y:100,
+          });
+          // huabanyu.alpha=0;
+        changsan1.alpha = 1;
+
+
+        changCount.addChild(chang1,changsan1,chang,huabanyu)
 
         // 时光机后的内容
         // 第五部分
@@ -1270,6 +1317,9 @@ function pixiFn(){
         });
         changpian.addChild(changpianImg)
 
+    
+
+
         
         // huabanyu.alpha=0
 
@@ -1329,7 +1379,7 @@ function pixiFn(){
         })
         // 竹子叶子
         part6leves1=createSprite("img/part6/leves1.png",{
-            x:1000,
+            x:600,
             y:0,
         })
         part6leves1.height=640;
@@ -1463,7 +1513,7 @@ function pixiFn(){
             y:200
         })
 
-        part6.addChild(part6san3,part6bluedenglong,part6wu1,part6wu2,part6bigtreeyun,part6piaoluo,part6bigtree,part6san1,part6leves1,part6trees,part6swallow1,part6zhuzi1,part6zhuzi2,part6san2,part6zhuzi7,part6swallow2,part6watervapor,part6peos,part6treesmount,part1text7)
+        part6.addChild(part6san3,part6bluedenglong,part6wu1,part6wu2,part6bigtreeyun,part6piaoluo,part6bigtree,part6leves1,part6san1,part6trees,part6swallow1,part6zhuzi1,part6zhuzi2,part6san2,part6zhuzi7,part6swallow2,part6watervapor,part6peos,part6treesmount,part1text7)
 
 
         // 竹子&&门
@@ -1716,54 +1766,144 @@ function pixiFn(){
           //  app = new PIXI.Application(800, 600);
           // document.body.appendChild(app.view);
 
-          app.stage.interactive = true;
+        app.stage.interactive = true;
 
           // var container = new PIXI.Container();
           // app.stage.addChild(container);
 
-          var flag1 = PIXI.Sprite.fromImage("img/part8/ribbon1.png");
-          var flag2 = PIXI.Sprite.fromImage("img/part8/ribbon2.png");
+        // 丝带组
+        sidaizumodel=new PIXI.Container();
+        sidaizumodel.x = 1600;
+        sidaizumodel.y = 520; 
+        sidaizumodel1=createSprite("img/part7/blueqiliu1.png",{
+          x:0,
+          y:0,
+         });
+         sidaizumodel2=createSprite("img/part7/blueqiliu2.png",{
+          x:1000,
+          y:0,
+         });
+
+         sidaizumodel.addChild(sidaizumodel1,sidaizumodel2)
+
+        // 丝带组
+        sidaizu=new PIXI.Container();
+        sidaizu.x = -1400;
+        sidaizu.y = 520; 
+        sidaizu1=createSprite("img/part7/blueqiliu1.png",{
+          x:0,
+          y:0,
+         });
+        sidaizu2=createSprite("img/part7/blueqiliu2.png",{
+          x:1000,
+          y:0,
+         });
+
+        sidaizu.addChild(sidaizu1,sidaizu2)
+
+        
+        
+          var count = 0;
+          var ropeLength = 100;
+          var points = [];
+
+          for (var i = 0; i < 25; i++) {
+            points.push(new PIXI.Point(i * ropeLength, 0));
+          }
+
+
+          // var flag1 = PIXI.Sprite.fromImage("img/part8/ribbon1.png");
+          // var flag2 = PIXI.Sprite.fromImage("img/part8/ribbon2.png");
+      
+
+          // var flag1 = new PIXI.mesh.Rope(PIXI.Texture.fromImage('img/part8/ribbon1.png'), points);
+
+          var flag2 = new PIXI.mesh.Rope(PIXI.Texture.fromImage('img/part8/ribbon2.png'), points);
           flag2.scale.set(0.7,0.7);
           flag2.x=600;
-          flag2.y=320;
+          flag2.y=540;
 
-          var displacementSprite = PIXI.Sprite.fromImage('img/displacement_map_repeat.jpg');
-          var displacementSprite1 = PIXI.Sprite.fromImage('img/displacement_map_repeat.jpg');
+          // var flag1rel = new PIXI.Graphics();
+          //     flag1rel.x = flag1.x;
+          //     flag1rel.y = flag1.y;
+          
+          var flag2rel = new PIXI.Graphics();
+            flag2rel.x = flag2.x;
+            flag2rel.y = flag2.y;
+
+          app.ticker.add(function() {
+            count += 0.05;
+            // make the snake
+            for (var i = 0; i < points.length; i++) {
+                points[i].y = Math.sin((i * 0.5) + count) * 30;
+                points[i].x = i * ropeLength + Math.cos((i * 0.3) + count) * 20;
+            }
+            renderPoints();
+          });
+
+          function renderPoints () {
+
+            // flag1rel.clear();
+            flag2rel.clear();
+        
+            // g.lineStyle(2,000);
+            // flag1rel.moveTo(points[0].x,points[0].y);
+            flag2rel.moveTo(points[0].x,points[0].y);
+        
+            for (var i = 1; i < points.length; i++) {
+              // flag1rel.lineTo(points[i].x,points[i].y);
+              flag2rel.lineTo(points[i].x,points[i].y);
+            }
+        
+            for (var i = 1; i < points.length; i++) {
+                // g.beginFill(000);
+                // g.drawCircle(points[i].x,points[i].y,10);
+                // flag1rel.endFill();
+                flag2rel.endFill();
+            }
+        }
+        
+
+
+          // var displacementSprite = PIXI.Sprite.fromImage('img/displacement_map_repeat.jpg');
+          // var displacementSprite1 = PIXI.Sprite.fromImage('img/displacement_map_repeat.jpg');
           //Make sure the sprite is wrapping.
-          displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
-          displacementSprite1.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
-          var displacementFilter = new PIXI.filters.DisplacementFilter(displacementSprite);
-          var displacementFilter1 = new PIXI.filters.DisplacementFilter(displacementSprite1);
+          // displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
+          // displacementSprite1.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
+          // var displacementFilter = new PIXI.filters.DisplacementFilter(displacementSprite);
+          // var displacementFilter1 = new PIXI.filters.DisplacementFilter(displacementSprite1);
 
-          displacementFilter.padding = 10;
-          displacementFilter1.padding = 10;
+          // displacementFilter.padding = 10;
+          // displacementFilter1.padding = 10;
 
-          displacementSprite.position = flag1.position;
-          displacementSprite1.position = flag2.position;
+          // displacementSprite.position = flag1.position;
+          // displacementSprite1.position = flag2.position;
 
-          app.stage.addChild(displacementSprite,displacementSprite1);
+          // app.stage.addChild(displacementSprite,displacementSprite1);
+          // app.stage.addChild(displacementSprite1);
 
-          flag1.filters = [displacementFilter];
-          flag2.filters = [displacementFilter1];
 
-          displacementFilter.scale.x = 30;
-          displacementFilter.scale.y = 60;
-          displacementFilter1.scale.x = 30;
-          displacementFilter1.scale.y = 60;
+          // flag1.filters = [displacementFilter];
+          // flag2.filters = [displacementFilter1];
 
-        app.ticker.add(function() {
+          // displacementFilter.scale.x = 30;
+          // displacementFilter.scale.y = 60;
+          // displacementFilter1.scale.x = 30;
+          // displacementFilter1.scale.y = 60;
+
+        // app.ticker.add(function() {
             //Offset the sprite position to make vFilterCoord update to larger value. Repeat wrapping makes sure there's still pixels on the coordinates.
-            displacementSprite.x+=1;
-            displacementSprite.y+=2;
-            displacementSprite1.x+=1;
-            displacementSprite1.y+=2;
+            // displacementSprite.x+=1;
+            // displacementSprite.y+=2;
+            // displacementSprite1.x+=1;
+            // displacementSprite1.y+=2;
             //Reset x to 0 when it's over width to keep values from going to very huge numbers.
-            if(displacementSprite.x > displacementSprite.width)
-              displacementSprite.x = 0;
+            // if(displacementSprite.x > displacementSprite.width)
+              // displacementSprite.x = 0;
             
-            if(displacementSprite1.x > displacementSprite1.width)
-            displacementSprite1.x = 0;
-        });
+            // if(displacementSprite1.x > displacementSprite1.width)
+            // displacementSprite1.x = 0;
+        // });
 
         part8ribbon1.scale.set(0.7,0.7);
         // 丝带2
@@ -1773,58 +1913,58 @@ function pixiFn(){
         });
         part8ribbon2.scale.set(0.7,0.7);
 
-        var count = 0;
+        // var count = 0;
         // build a rope!
-        var ropeLength = 100;
+        // var ropeLength = 100;
 
-        var points = [];
+        // var points = [];
 
-        for (var i = 0; i < 25; i++) {
-            points.push(new PIXI.Point(i * ropeLength, 0));
-        }
+        // for (var i = 0; i < 25; i++) {
+        //     points.push(new PIXI.Point(i * ropeLength, 0));
+        // }
 
-        var strip = new PIXI.mesh.Rope(PIXI.Texture.fromImage('img/part8/ribbon2.png'), points);
-        strip.x = -40;
-        strip.y = 300;
+        // var strip = new PIXI.mesh.Rope(PIXI.Texture.fromImage('img/part8/ribbon2.png'), points);
+        // strip.x = -40;
+        // strip.y = 300;
 
-        app.stage.addChild(strip);
+        // app.stage.addChild(strip);
 
 
-        var g = new PIXI.Graphics();
-        g.x = strip.x;
-        g.y = strip.y;
-        app.stage.addChild(g);
+        // var g = new PIXI.Graphics();
+        // g.x = strip.x;
+        // g.y = strip.y;
+        // app.stage.addChild(g);
         
-        // start animating
-        app.ticker.add(function() {
+        // // start animating
+        // app.ticker.add(function() {
         
-            count += 0.1;
+        //     count += 0.1;
         
-            // make the snake
-            for (var i = 0; i < points.length; i++) {
-                points[i].y = Math.sin((i * 0.5) + count) * 30;
-                points[i].x = i * ropeLength + Math.cos((i * 0.3) + count) * 20;
-            }
-            renderPoints();
-        });
+        //     // make the snake
+        //     for (var i = 0; i < points.length; i++) {
+        //         points[i].y = Math.sin((i * 0.5) + count) * 30;
+        //         points[i].x = i * ropeLength + Math.cos((i * 0.3) + count) * 20;
+        //     }
+        //     renderPoints();
+        // });
         
-        function renderPoints () {
+        // function renderPoints () {
         
-            g.clear();
+        //     g.clear();
         
-            // g.lineStyle(2,000);
-            g.moveTo(points[0].x,points[0].y);
+        //     // g.lineStyle(2,000);
+        //     g.moveTo(points[0].x,points[0].y);
         
-            for (var i = 1; i < points.length; i++) {
-                g.lineTo(points[i].x,points[i].y);
-            }
+        //     for (var i = 1; i < points.length; i++) {
+        //         g.lineTo(points[i].x,points[i].y);
+        //     }
         
-            for (var i = 1; i < points.length; i++) {
-                // g.beginFill(000);
-                // g.drawCircle(points[i].x,points[i].y,10);
-                g.endFill();
-            }
-        }
+        //     for (var i = 1; i < points.length; i++) {
+        //         // g.beginFill(000);
+        //         // g.drawCircle(points[i].x,points[i].y,10);
+        //         g.endFill();
+        //     }
+        // }
 
 
         // 文本9潜藏着丰富的时尚元素
@@ -1834,24 +1974,24 @@ function pixiFn(){
         });
         
         // 蓝丝绸尾巴
-        part8dancer1=createSprite("img/part8/dancer1.png",{
-            x:800,
-            y:520,
-        });
+        // part8dancer1=createSprite("img/part8/dancer1.png",{
+        //     x:800,
+        //     y:520,
+        // });
 
         // 舞者1
-        part8dancer1=createSprite("img/part8/dancer1.png",{
-            x:800,
-            y:520,
+        part8dancer1=createSprite("img/part8/dancer2.png",{
+            x:400,
+            y:350,
         });
-        part8dancer1.scale.set(0.5,0.5)
+        // part8dancer1.scale.set(1.1,1.1)
 
         // 舞者2
-        part8dancer2=createSprite("img/part8/dancer2.png",{
+        part8dancer2=createSprite("img/part8/dancer1.png",{
             x:1000,
-            y:430,
+            y:600,
         });
-        part8dancer2.scale.set(0.6,0.6)
+        part8dancer2.scale.set(0.4,0.4)
 
         // part8仙鹤飞1
         part8birdfly1=createSprite("img/part9/birdfly9.png",{
@@ -2038,13 +2178,13 @@ function pixiFn(){
         part9stoves.addChild(part9stove1,part9stove2,part9stove3)
         part9.addChild(part1text10,part9wu1,part9maid1,part9maid2,part9men2,part9stoves,part1text11,part9slogan,part9redbox,part9bluebox,part9whitebox,part9birdfly,part9gglogo,part9wu2,part9signboard,part9text9)
         part8chimes.addChild(part8chime1,part8chime2,part8chime3,part8chime4,part8chime5,part8chime6,part8chime7)
-        part8.addChild(flag1,flag2,part1text9,part8ribbon1,part8chimes,part8dancer1,part8dancer2,part8bird,part8dancer3,part8birdfly1,part8cloud8,part8petal1,part8petal2,part8petal2,part8sichou)
+        part8.addChild(sidaizu,flag2,flag2rel,part1text9,part8ribbon1,part8chimes,part8dancer1,part8dancer2,part8bird,part8dancer3,part8birdfly1,part8cloud8,part8petal1,part8petal2,part8petal2,part8sichou)
       // img/part6/zhuzi6.png
 
       // img/part6/zhuzi4.png
         part7nmodelzu.addChild(part7nmodel1,part7nmodel2,part7nmodel3,part7nmodel4,part7nmodel5,part7nmodel6,part7nmodel7,part7nmodel8)
         // part7.addChild(part7blueqiliu2,part7zhuzi6,part7zhuzi3,part7zhuzi5,part7doorzu,part7zhuzi4,part1text8,part7swallow2,part7ye,part7book2,part7blueqiliu1,part7pink2,part7nmodelzu);
-        part7.addChild(part7blueqiliu2,part7zhuzi6,part7zhuzi3,part7zhuzi5,part7doorzu,part7zhuzi4,part1text8,part7swallow2,part7ye,part7book2,part7blueqiliu1,part7nmodelzu);
+        part7.addChild(part7blueqiliu2,part7zhuzi6,part7zhuzi3,part7zhuzi5,part7doorzu,part7zhuzi4,part1text8,part7swallow2,part7ye,part7book2,part7blueqiliu1,sidaizumodel,part7nmodelzu);
         
         // part5modelzu.addChild(part5model1,part5model2,part5model3,part5model4,part5model5,part5model6,part5model7,part5model8)
         part5modelzu.addChild(part5model1,part5model2,part5model3,part5model4,part5model5,part5model6,part5model7,part5model8)
@@ -2054,12 +2194,12 @@ function pixiFn(){
         // part5.addChild(part5modelzu);
         
         // part1BirdFly.addChild(part1house1,part1country1,part1cloud,part1house3,part1light2,part1sflower,part1bflower,part1house2,part1light1,part1mountains,part1mountainssan,part1sunrise,part1smoke,part1birdfly1,part1yumao1,part1meihua,part1bigbirdflywu,part1birdfly3,part1birdfly2,part1birdfly4,part1text4,part1yumao2,part1birdfly5,part1birdflywu,part1text5);
-        part1BirdFly.addChild(part1house1,part1country1,part1cloud,part1house3,part1light2,part1sflower,part1bflower,part1house2,part1light1,part1mountains,part1mountainssan,part1sunrise,part1smoke,part1birdfly1,part1yumao1,part1meihua,part1bigbirdflywu,part1birdfly2,part1birdfly4,part1text4,part1yumao2,part1birdfly5,part1birdflywu,part1text5);
+        part1BirdFly.addChild(part1house1,part1country1,part1cloud,part1house3,part1light2,part1sflower,part1bflower,part1house2,part1light1,part1mountains,part1mountainssan,part1sunrise,part1smoke,part1birdfly1,part1yumao1,part1meihua,part1bigbirdflywu,part1birdfly2,part1birdfly6,part1birdfly7,part1birdfly8,part1birdfly4,part1text4,part1yumao2,part1birdfly5,part1birdflywu,part1text5);
 
         part5liushengjizu.addChild(part5liushengji3,part5liushengji2,part5liushengji1)
         // part5liushengji1
         part1.addChild(part1ClouCover,part1HandMove,part1hushui,part1BirdSun,part1Sailing,part1Ship,part1text3,part1BirdFly,changCount,timerCount);
-        container.addChild(tilingSprite,part1,part5,part6,part7,part8,part9);
+        container.addChild(tilingSprite,part1,part5,part6,part8,part7,part9);
         app.stage.addChild(container,titleContainer);
         init() 
         app.ticker.add(function() {
@@ -2247,12 +2387,32 @@ function scrollBegin(){
           part1bird2.alpha = 0;
         }
 
+        if(5650+200 < scrollPro && scrollPro < 5650+500){
+            for(var i = 0; i < 5; i++){
+                var num1 = 5650+200 + (300)/5 * i;
+                var num2 = 5650+200 + (300)/5 * (i+1);
+
+                if(num1 < scrollPro && scrollPro < num2){
+                  part1bird3.gotoAndStop(i);
+                }
+            }
+      }
+
         // 仙鹤3动画
-        if(5650 < scrollPro && scrollPro < 5700){
-            part1bird3.alpha = scrollNum(5650,5700,scrollPro,0,1);
-        }else if(5700>scrollPro){
-            part1bird3.alpha = 0;
-        }
+        // if(5650 < scrollPro && scrollPro < 5700){
+            // part1bird3.alpha = scrollNum(5650,5700,scrollPro,0,1);
+          //   if(5650+200 < scrollPro && scrollPro < 5650+400){
+          //     for(var i = 0; i < 2; i++){
+          //         var num1 = 5650+200 + (200)/2 * i;
+          //         var num2 = 5650+200 + (200)/2 * (i+1);
+          //         if(num1 < scrollPro && scrollPro < num2){ 
+          //           part1bird3.gotoAndStop(i);
+          //         }
+          //     }
+          // }
+        // }else if(5700>scrollPro){
+        //     // part1bird3.alpha = 0;
+        // }
 
         // 仙鹤4动画
         if(6000 < scrollPro && scrollPro < 6050){
@@ -2396,12 +2556,16 @@ function scrollBegin(){
             part1country1.y= scrollNum(8850,15000,scrollPro,0,400);
             // part1country1.alpha = scrollNum(8850,15000,scrollPro,0,1);
             }
-        // 三只仙鹤动画
+        // 六只仙鹤动画
         if(14240 < scrollPro && scrollPro < 15260){
         
             part1birdfly2.x= scrollNum(14240,15260,scrollPro,5100,5300);
             part1birdfly4.x= scrollNum(14240,15260,scrollPro,4800,5200);
             part1birdfly5.x= scrollNum(14240,15260,scrollPro,5600,5900);
+            part1birdfly6.x= scrollNum(14240,15260,scrollPro,5600,6400);
+            part1birdfly6.y= scrollNum(14240,15260,scrollPro,150,60);
+            part1birdfly7.x= scrollNum(14240,15260,scrollPro,5600,6000);
+            part1birdfly8.x= scrollNum(14240,15260,scrollPro,5750,6100);
             part1birdfly5.y= scrollNum(14240,15260,scrollPro,350,400);
             // part1birdfly5.alpha=scrollNum(14240,15260,scrollPro,1,0);
             
@@ -2512,13 +2676,26 @@ function scrollBegin(){
           chang1.x = scrollNum(19490,19700,scrollPro,570+260,570+260+510);
           chang1.y = scrollNum(19490,19700,scrollPro,320,600);
         }
-        if(19400< scrollPro && scrollPro < 19858){
-            huabanyu.x = scrollNum(19400,19858,scrollPro,460,680);
-            huabanyu.y = scrollNum(19400,19858,scrollPro,-100,400);
-            huabanyu.alpha = scrollNum(19400,19858,scrollPro,0,1);
-            huabanyu.scale.x = scrollNum(19400,19858,scrollPro,0.1,2);
-            huabanyu.scale.y = scrollNum(19400,19858,scrollPro,0.1,2);
-          }
+
+        if(19700< scrollPro && scrollPro < 20400){
+            huabanyu.x = scrollNum(19700,20400,scrollPro,360,260+460);
+            huabanyu.y = scrollNum(19700,20400,scrollPro,-4000,0);
+         }
+
+         if(19700< scrollPro && scrollPro < 20400){
+            changsan1.y = scrollNum(19700,20400,scrollPro,100,300);
+            changsan1.x = scrollNum(19700,20400,scrollPro,370,400);
+            changsan1.alpha=scrollNum(19700,20400,scrollPro,0,1);
+          
+         }
+        // if(19000< scrollPro && scrollPro < 20400){
+        //     huabanyu.x = scrollNum(19000,20400,scrollPro,460,460+460);
+        //     huabanyu.y = scrollNum(19000,20400,scrollPro,-2000,0);
+        //     // huabanyu.alpha = scrollNum(19400,19858,scrollPro,0,1);
+        //     // huabanyu.scale.x = scrollNum(19400,19858,scrollPro,0.1,2);
+        //     // huabanyu.scale.y = scrollNum(19400,19858,scrollPro,0.1,2);
+        //   }
+        
         
 
         // if(20350 < scrollPro && scrollPro < 22350){
@@ -2586,7 +2763,7 @@ function scrollBegin(){
               if(num1 < scrollPro && scrollPro < num2){
                   for(var j = 0; j < part5pillars.children.length;j++){
                       if(j >= i){
-                          part5pillars.children[j].alpha = 0;
+                          part5pillars.children[j].alpha = 1;
                       }else{
                           part5pillars.children[j].alpha = 1;
                       }
@@ -2678,6 +2855,13 @@ function scrollBegin(){
         part6san3.x = scrollNum(25398,25901,scrollPro,-220,0);
     }
     
+    // 竹林后的云
+    if(26018 < scrollPro && scrollPro < 26886){
+        // part6san3.rotation = scrollNum(25760,25850,scrollPro,0,Math.PI*-0.4);
+        // part6san3.y = scrollNum(25350,25550,scrollPro,250,-420);
+        // part6san3.alpha = scrollNum(25350,25550,scrollPro,1,0);
+        part6bigtreeyun.x = scrollNum(26018,26886,scrollPro,230,100);
+    }
     //   // 23480 模特 25470
     //   if(23480 < scrollPro && scrollPro < 25470+200){
     //     for(var i = 0; i < 9; i++){
@@ -2946,23 +3130,60 @@ function scrollBegin(){
         
       // }
     //   第八部分
+
+    if(37000 < scrollPro && scrollPro <37900){
+      part8ribbon1.x=scrollNum(37000,37900,scrollPro,-700,-200);
+    }
+
+    if(37000 < scrollPro && scrollPro <37400){
+      part8dancer1.x=scrollNum(37000,37400,scrollPro,400,800);
+      part8dancer1.y=scrollNum(37000,37400,scrollPro,350,250);
+    }
+
+    if(37000 < scrollPro && scrollPro <38250){
+      sidaizu.x=scrollNum(37000,38250,scrollPro,-1400,-500);
+    }
+
+
+    if(37400 < scrollPro && scrollPro <37800){
+      part8dancer2.x=scrollNum(37400,37800,scrollPro,1000,1200);
+      part8dancer2.y=scrollNum(37400,37800,scrollPro,600,500);
+    }
+
+    if(37800 < scrollPro && scrollPro <38450){
+      part8birdfly1.x=scrollNum(37800,38450,scrollPro,1200,1850);
+      part8birdfly1.y=scrollNum(37800,38450,scrollPro,340,-320);
+    }
+
+
+    if(38000 < scrollPro && scrollPro <38250){
+      part8ribbon1.y=scrollNum(38000,38250,scrollPro,0,-250);
+      part8dancer3.y=scrollNum(38000,38250,scrollPro,0,-30)
+    }
+
     // 小飞天和大飞天动画
     if(37605 < scrollPro && scrollPro < 38726){
-        part8dancer1.x=scrollNum(37605,38726,scrollPro,800,1000);
-        part8dancer1.y=scrollNum(37605,38726,scrollPro,520,480);
-        part8dancer2.x=scrollNum(37605,38726,scrollPro,1000,1400);
-        part8dancer2.y=scrollNum(37605,38726,scrollPro,430,200);
-        part8dancer2.alpha=scrollNum(37605,38726,scrollPro,1,0);
-        part8birdfly1.x=scrollNum(37605,38726,scrollPro,1200,1500);
-        part8birdfly1.y=scrollNum(37605,38726,scrollPro,340,-100);
-        part8birdfly1.alpha=scrollNum(37605,38726,scrollPro,1,0);
+       
+        // part8dancer2.x=scrollNum(37605,38726,scrollPro,1000,1400);
+        // part8dancer2.y=scrollNum(37605,38726,scrollPro,430,200);
+        // part8dancer2.alpha=scrollNum(37605,38726,scrollPro,1,0);
+        // part8birdfly1.x=scrollNum(37605,38726,scrollPro,1200,1500);
+        // part8birdfly1.y=scrollNum(37605,38726,scrollPro,340,-100);
+        // part8birdfly1.alpha=scrollNum(37605,38726,scrollPro,1,0);
       }
     //   中间舞者大大飞天 
     if(37300 < scrollPro && scrollPro < 37980){
         part8dancer3.x=scrollNum(37300,37980,scrollPro,1500,1300);
       
-      }
+   }
 
+   //   中间舞者前云
+   
+     
+     if(37610 < scrollPro && scrollPro < 38428){
+        part8cloud8.x=scrollNum(37610,38428,scrollPro,1500,1900);
+      
+   }
 
 
     // // 第九部分
@@ -3497,6 +3718,25 @@ function onClick(){
     window.location.href="http://item.jd.com/100002876280.html"
 }
 
+// 创建序列帧动画
+function createAnimatedSprite(name, num, opt, start) {
+  // 用json 资源创建一个 AnimatedSprite 对象
+  var Textures = [],
+      i, AnimatedSpriteInstance;
+  i = start || 0;
+  for (; i < num; i++) {
+      var Texture = PIXI.Texture.fromImage(name + i + '.png');
+      console.log(Texture)
+      Textures.push(Texture);
+  }
+  AnimatedSpriteInstance = new PIXI.extras.AnimatedSprite(Textures);
+  if (opt) {
+      _.forIn(opt, function(value, key) {
+          AnimatedSpriteInstance[key] = value;
+      });
+  }
+  return AnimatedSpriteInstance;
+}
 
 $(function(){
     // loading图片加载
