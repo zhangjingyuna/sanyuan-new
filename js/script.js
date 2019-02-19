@@ -157,7 +157,6 @@ var imgArr = [
 
 // 横屏内容长度
 var lastWidth = $(window).height();
-// var contentLength = 47740+1400+lastWidth;
 var contentLength = lastWidth;
 $(document).bind("touchmove",function(e){
     e.preventDefault();
@@ -278,7 +277,6 @@ function loadThen(){
          .add("mingan","img/audio/mingan.mp3")
          .add("chendian","img/audio/chendian.mp3")
          .add("sanyuan","img/audio/sanyuan.mp3")
-        //  .add("chuanzhonghua","img/audio/chuanzhonghua.mp3")
         // 音效
         .add("feng","img/audio/feng.mp3")
         .add("lingdang","img/audio/lingdang.mp3")
@@ -291,10 +289,6 @@ function loadThen(){
         .add("bianzhong","img/audio/bianzhong.mp3")
         .add("hejiao","img/audio/hejiao.mp3")
         .add("yeshanghai","img/audio/yeshanghai.mp3")
-        
-        
-        
-
         //  鹤鸣
          .add("heming","img/audio/heming.mp3")
          //  流水
@@ -329,7 +323,6 @@ function musicPause(){
       loader2.resources.mingan.sound.pause();
       loader2.resources.chendian.sound.pause();
       loader2.resources.sanyuan.sound.pause();
-    //   loader2.resources.chuanzhonghua.sound.pause();
       loader2.resources.heming.sound.pause();
       loader2.resources.liushui.sound.pause();
       
@@ -343,16 +336,7 @@ function musicPause(){
 
 
 
-// 创建sprite对象
-function createSprite(name,opt){
-    var newSprite = new PIXI.Sprite.fromImage(name);
-    if (opt) {
-        _.forIn(opt, function(value, key) {
-            newSprite[key] = value;
-        });
-    }
-    return newSprite;
-}
+
 
 function pixiFn(){
     app = new PIXI.Application(5000000, 640,{
@@ -416,23 +400,6 @@ function pixiFn(){
         part1.y = 0;
         part1.width = 18000;
 
-        // 背景图
-        // var countBg = new PIXI.Container();
-        // countBg.x = 0;
-        // countBg.y = 0;
-        // countBg.width =  app.view.width;
-        // countBg.height =  app.view.height;
-
-        //   // 背景
-        // activityBg = createSprite("img/part1/bg.png",{
-        //     x:0,
-        //     y:0,
-        // });
-        
-        // activityBg.width =  12000;
-        // activityBg.height =  app.view.height;
-        // countBg.addChild(activityBg);
-
         var countBg = PIXI.Texture.fromImage('img/part1/bg.png'); //创建纹理
         var tilingSprite = new PIXI.extras.TilingSprite(
             countBg,
@@ -453,8 +420,7 @@ function pixiFn(){
             x:0,
             y:165,
         });
-        // part1gugong.pivot.x = 354;
-        // part1gugong.pivot.y = 27;
+      
 
         // 雾1
         part1wu1 = createSprite("img/part1/wu1.png",{
@@ -615,6 +581,7 @@ function pixiFn(){
              x:400,
              y:94,
          });
+         part1bird3.scale.set(0.6);
         // part1bird3 = createSprite("img/part2/bird3.png",{
         //     x:400,
         //     y:94,
@@ -879,26 +846,29 @@ function pixiFn(){
             x:5600,
             y:150,
         });
-        part1birdfly6.scale.set(0.8,0.8);
+        part1birdfly6.scale.set(0.,0.8);
         part1birdfly6.scale.set(0.8,0.8);
         part1birdfly6.rotation=-0.3
+
+
 
          // 梅花后的中仙鹤3
          part1birdfly7 = createSprite("img/part4/birdfly1.png",{
             x:5500,
-            y:60,
+            y:30,
         });
-        part1birdfly7.scale.set(0.3,0.3);
-        part1birdfly7.scale.set(0.3,0.3);
-        part1birdfly7.rotation=-0.3
+        part1birdfly7.scale.set(0.2,0.2);
+        part1birdfly7.scale.set(0.2,0.2);
+        part1birdfly7.rotation=0.2
+
 
          // 梅花后的中仙鹤4
          part1birdfly8 = createSprite("img/part4/birdfly1.png",{
-            x:5750,
+            x:5550,
             y:100,
         });
-        part1birdfly8.scale.set(0.4,0.4);
-        part1birdfly8.scale.set(0.4,0.4);
+        part1birdfly8.scale.set(0.3,0.3);
+        part1birdfly8.scale.set(0.3,0.3);
         part1birdfly8.rotation=-0.3
 
         // 梅花后的中仙鹤后的雾
@@ -1001,14 +971,16 @@ function pixiFn(){
         chang1.pivot.x = 689;
         chang1.pivot.y = 689;
 
-        // 花瓣雨
+        // 花瓣雨1
         huabanyu= createSprite("img/part5/huabanyu.png",{
             x:360,
             y:-4000,
           });
           // huabanyu.alpha=0;
-        huabanyu.scale.x=1.2;
-        huabanyu.scale.y=1.2;
+        huabanyu.scale.x=1;
+        huabanyu.scale.y=1;
+
+       
 
         // 唱片上的伞
         changsan1= createSprite("img/part5/redsan.png",{
@@ -1051,6 +1023,15 @@ function pixiFn(){
                         x:80,
                         y:100,
          });
+
+         // 花瓣雨2
+         huabanyu2= createSprite("img/part5/huabanyu.png",{
+            x:1100,
+            y:-4000,
+          });
+          // huabanyu.alpha=0;
+        huabanyu.scale.x=1;
+        huabanyu.scale.y=1;
    
     //     part5zu1=createSprite("img/part5/zu1.png",{
     //             x:200,
@@ -2190,7 +2171,7 @@ function pixiFn(){
         part5modelzu.addChild(part5model1,part5model2,part5model3,part5model4,part5model5,part5model6,part5model7,part5model8)
         // part5pillars.addChild(part5zhuzi1,part5zhuzi2,part5zhuzi3,part5zhuzi4,part5zhuzi5,part5zhuzi6,part5zhuzi8,part5zhuzi10,part5zhuzi11,part5zhuzi12,part5zhuzi13,part5zhuzi);
         part5pillars.addChild(part5zhuzi);
-        part5.addChild(part1changyun1,part1zhuzismoke,part5pillars,part5denglonghu,part5redsan,part5men,part5liushengjizu,part5book,part5denglongzu,part5whitedenglong,part5smallsan,part5midsan,part5cloudzu,changpian,part5modelzu,part5bluedenglong2,part1text6);
+        part5.addChild(part1changyun1,part1zhuzismoke,part5pillars,huabanyu2,part5denglonghu,part5redsan,part5men,part5liushengjizu,part5book,part5denglongzu,part5whitedenglong,part5smallsan,part5midsan,part5cloudzu,changpian,part5modelzu,part5bluedenglong2,part1text6);
         // part5.addChild(part5modelzu);
         
         // part1BirdFly.addChild(part1house1,part1country1,part1cloud,part1house3,part1light2,part1sflower,part1bflower,part1house2,part1light1,part1mountains,part1mountainssan,part1sunrise,part1smoke,part1birdfly1,part1yumao1,part1meihua,part1bigbirdflywu,part1birdfly3,part1birdfly2,part1birdfly4,part1text4,part1yumao2,part1birdfly5,part1birdflywu,part1text5);
@@ -2389,8 +2370,8 @@ function scrollBegin(){
 
         if(5650+200 < scrollPro && scrollPro < 5650+500){
             for(var i = 0; i < 5; i++){
-                var num1 = 5650+200 + (300)/5 * i;
-                var num2 = 5650+200 + (300)/5 * (i+1);
+                var num1 = 5650+200 + (100)/5 * i;
+                var num2 = 5650+200 + (100)/5 * (i+1);
 
                 if(num1 < scrollPro && scrollPro < num2){
                   part1bird3.gotoAndStop(i);
@@ -2564,8 +2545,8 @@ function scrollBegin(){
             part1birdfly5.x= scrollNum(14240,15260,scrollPro,5600,5900);
             part1birdfly6.x= scrollNum(14240,15260,scrollPro,5600,6400);
             part1birdfly6.y= scrollNum(14240,15260,scrollPro,150,60);
-            part1birdfly7.x= scrollNum(14240,15260,scrollPro,5600,6000);
-            part1birdfly8.x= scrollNum(14240,15260,scrollPro,5750,6100);
+            part1birdfly7.x= scrollNum(14240,15260,scrollPro,5500,5890);
+            part1birdfly8.x= scrollNum(14240,15260,scrollPro,5550,6100);
             part1birdfly5.y= scrollNum(14240,15260,scrollPro,350,400);
             // part1birdfly5.alpha=scrollNum(14240,15260,scrollPro,1,0);
             
@@ -2677,9 +2658,16 @@ function scrollBegin(){
           chang1.y = scrollNum(19490,19700,scrollPro,320,600);
         }
 
-        if(19700< scrollPro && scrollPro < 20400){
+       
+
+         if(19700< scrollPro && scrollPro < 20400){
             huabanyu.x = scrollNum(19700,20400,scrollPro,360,260+460);
             huabanyu.y = scrollNum(19700,20400,scrollPro,-4000,0);
+         }
+
+         if(20806< scrollPro && scrollPro < 21000){
+            huabanyu2.x = scrollNum(20806,21000,scrollPro,1100,50+1100);
+            huabanyu2.y = scrollNum(20806,21000,scrollPro,-4000,0);
          }
 
          if(19700< scrollPro && scrollPro < 20400){
@@ -3547,136 +3535,7 @@ function scrollBegin(){
           }
 
 
-      // .add("cgl","img/audio/cgl.mp3")
-      // .add("zgf","img/audio/zgf.mp3")
-      // .add("cangzhe","img/audio/cangzhe.mp3")
-      // .add("mingan","img/audio/mingan.mp3")
-      // .add("chendian","img/audio/chendian.mp3")
-      // .add("sanyuan","img/audio/sanyuan.mp3")
-      // .add("chuanzhonghua","img/audio/chuanzhonghua.mp3")
-        
-
-          // //   早在18世纪 声音3
-          // if(2178 < scrollPro && scrollPro < 3084){
-          //   if(!loader2.resources.jss.sound.isPlaying && loader2.resources.nzdm.sound.flag && musicOn){
-          //       loader2.resources.jss.sound.volume = 1;
-          //       loader2.resources.jss.sound.play();
-          //       loader2.resources.jss.sound.flag = false;
-          //   }
-          // }else{
-          //     loader2.resources.jss.sound.flag = true;
-          // }
-
-        //   //    包容万千 声音4
-        //   if(2178 < scrollPro && scrollPro < 3084){
-        //     if(!loader2.resources.brwq.sound.isPlaying && loader2.resources.nzdm.sound.flag && musicOn){
-        //         loader2.resources.brwq.sound.volume = 1;
-        //         loader2.resources.brwq.sound.play();
-        //         loader2.resources.brwq.sound.flag = false;
-        //     }
-        //   }else{
-        //       loader2.resources.brwq.sound.flag = true;
-        //   }
-
-        //   //   历久弥新 声音5
-        //   if(2178 < scrollPro && scrollPro < 3084){
-        //     if(!loader2.resources.ljmx.sound.isPlaying && loader2.resources.nzdm.sound.flag && musicOn){
-        //         loader2.resources.ljmx.sound.volume = 1;
-        //         loader2.resources.ljmx.sound.play();
-        //         loader2.resources.ljmx.sound.flag = false;
-        //     }
-        //   }else{
-        //       loader2.resources.jss.sound.flag = true;
-        //   }
-
-        //   //   纵使 声音6
-        //   if(2178 < scrollPro && scrollPro < 3084){
-        //     if(!loader2.resources.zs.sound.isPlaying && loader2.resources.nzdm.sound.flag && musicOn){
-        //         loader2.resources.zs.sound.volume = 1;
-        //         loader2.resources.zs.sound.play();
-        //         loader2.resources.zs.sound.flag = false;
-        //     }
-        //   }else{
-        //       loader2.resources.jss.sound.flag = true;
-        //   }
-
-        //   //   从古改良 声音7
-        //   if(2178 < scrollPro && scrollPro < 3084){
-        //     if(!loader2.resources.cggl.sound.isPlaying && loader2.resources.nzdm.sound.flag && musicOn){
-        //         loader2.resources.cggl.sound.volume = 1;
-        //         loader2.resources.cggl.sound.play();
-        //         loader2.resources.cggl.sound.flag = false;
-        //     }
-        //   }else{
-        //       loader2.resources.jss.sound.flag = true;
-        //   }
-
-        //    //   源远流长 声音8
-        //    if(2178 < scrollPro && scrollPro < 3084){
-        //     if(!loader2.resources.yylc.sound.isPlaying && loader2.resources.nzdm.sound.flag && musicOn){
-        //         loader2.resources.yylc.sound.volume = 1;
-        //         loader2.resources.yylc.sound.play();
-        //         loader2.resources.yylc.sound.flag = false;
-        //     }
-        //   }else{
-        //       loader2.resources.jss.sound.flag = true;
-        //   }
-
-        //   //   时尚元素 声音9
-        //   if(2178 < scrollPro && scrollPro < 3084){
-        //     if(!loader2.resources.ssys.sound.isPlaying && loader2.resources.nzdm.sound.flag && musicOn){
-        //         loader2.resources.ssys.sound.volume = 1;
-        //         loader2.resources.ssys.sound.play();
-        //         loader2.resources.ssys.sound.flag = false;
-        //     }
-        //   }else{
-        //       loader2.resources.jss.sound.flag = true;
-        //   }
-
-        //   //   源远流长 声音10
-        //   if(2178 < scrollPro && scrollPro < 3084){
-        //     if(!loader2.resources.yrmg.sound.isPlaying && loader2.resources.nzdm.sound.flag && musicOn){
-        //         loader2.resources.yrmg.sound.volume = 1;
-        //         loader2.resources.yrmg.sound.play();
-        //         loader2.resources.yrmg.sound.flag = false;
-        //     }
-        //   }else{
-        //       loader2.resources.jss.sound.flag = true;
-        //   }
-
-        //   //   沉淀了几个 声音11
-        //   if(2178 < scrollPro && scrollPro < 3084){
-        //     if(!loader2.resources.cdljg.sound.isPlaying && loader2.resources.nzdm.sound.flag && musicOn){
-        //         loader2.resources.cdljg.sound.volume = 1;
-        //         loader2.resources.cdljg.sound.play();
-        //         loader2.resources.cdljg.sound.flag = false;
-        //     }
-        //   }else{
-        //       loader2.resources.jss.sound.flag = true;
-        //   }
-
-        //   //   三元牛奶 声音12
-        //   if(2178 < scrollPro && scrollPro < 3084){
-        //     if(!loader2.resources.symk.sound.isPlaying && loader2.resources.nzdm.sound.flag && musicOn){
-        //         loader2.resources.symk.sound.volume = 1;
-        //         loader2.resources.symk.sound.play();
-        //         loader2.resources.symk.sound.flag = false;
-        //     }
-        //   }else{
-        //       loader2.resources.jss.sound.flag = true;
-        //   }
-
-        //   //   中华之美 声音13
-        //   if(2178 < scrollPro && scrollPro < 3084){
-        //     if(!loader2.resources.zhzm.sound.isPlaying && loader2.resources.nzdm.sound.flag && musicOn){
-        //         loader2.resources.zhzm.sound.volume = 1;
-        //         loader2.resources.zhzm.sound.play();
-        //         loader2.resources.zhzm.sound.flag = false;
-        //     }
-        //   }else{
-        //       loader2.resources.jss.sound.flag = true;
-        //   }
-        
+     
     }
 
  
@@ -3718,7 +3577,7 @@ function onClick(){
     window.location.href="http://item.jd.com/100002876280.html"
 }
 
-// 创建序列帧动画
+// 仙鹤仰脖创建序列帧动画
 function createAnimatedSprite(name, num, opt, start) {
   // 用json 资源创建一个 AnimatedSprite 对象
   var Textures = [],
@@ -3736,6 +3595,17 @@ function createAnimatedSprite(name, num, opt, start) {
       });
   }
   return AnimatedSpriteInstance;
+}
+
+// 创建sprite对象
+function createSprite(name,opt){
+    var newSprite = new PIXI.Sprite.fromImage(name);
+    if (opt) {
+        _.forIn(opt, function(value, key) {
+            newSprite[key] = value;
+        });
+    }
+    return newSprite;
 }
 
 $(function(){
